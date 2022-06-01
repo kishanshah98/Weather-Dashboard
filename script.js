@@ -36,4 +36,3 @@ var getCityWeather = function (latitude, longitude) {
 
 searchFormEl.addEventListener('submit', formSubmitHandler);
 
-// API Key: 311f49e649708ffa86c102b22a78e596
