@@ -1,0 +1,40 @@
+header {
+    background-color: #3273a8;
+    padding-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+}
+
+.btn {
+    background-color: lightskyblue;
+    height: 50px;
+    width: 300px;
+}
+
+#user-form {
+    height: 75px;
+    width: 300px;
+}
+
+#city-list ul li {
+    list-style-type: none;
+    text-align: center;
+}
+
+#name-input {
+    height: 40px;
+    width: 270px;
+}
+
+.btn-success {
+    height: 40px;
+    width: 270px;
+}
+
+.container-1 {
+    margin: 10px;
+}
