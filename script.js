@@ -10,7 +10,7 @@ function getGeoLocation(event) {
     var apiKey = '311f49e649708ffa86c102b22a78e596';
     var cityName = cityNameEl.value.trim();
     storeCities(cityName)
-
+    cityNameEl.value = '';
     console.log(cityName);
     var apiUrlGeolocation = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityName + '&limit=1&appid=' + apiKey;
     
@@ -60,6 +60,14 @@ function getCityWeather(latitude, longitude) {
 
         var currentuvIndexEl = document.createElement("div");
         currentuvIndexEl.textContent = "UV Index: " + data.current.uvi;
+
+        if (data.current.uvi < 2) {
+            currentuvIndexEl.setAttribute("style", "background-color: #7dd943");
+        } else if (data.current.uvi < 5) {
+            currentuvIndexEl.setAttribute("style", "background-color: yellow");
+        } else {
+            currentuvIndexEl.setAttribute("style", "background-color: red");
+        };
 
         var currentDateEl = document.createElement("div");
         var dt = data.current.dt;

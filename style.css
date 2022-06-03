@@ -1,11 +1,11 @@
 header {
-    background-color: #3273a8;
+    background-color: #2697d4;
     padding-bottom: 20px;
 }
 
 h1 {
     text-align: center;
-    color: white;
+    color: black;
     padding-top: 20px;
 }
 
@@ -40,14 +40,12 @@ h1 {
 }
 
 .current-weather-container {
-    border: 1px solid black;
-    background-color: #dce37b;
+    border: 2px solid navy;
     height: 225px;
     display: block;
 }
 
 .five-day-forecast-container {
-    background-color: bisque;
-    border: 1px solid black;
+    border: 2px solid black;
     height: 300px
 }
