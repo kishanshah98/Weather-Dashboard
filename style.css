@@ -3,49 +3,29 @@ header {
     padding-bottom: 20px;
 }
 
+main {
+    width: 100%;
+}
+
 h1 {
     text-align: center;
     color: black;
     padding-top: 20px;
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
 }
 
 .btn {
-    background-color: lightskyblue;
+    display: inline-block;
+    background-color: #349beb;
     height: 50px;
-    width: 300px;
+    width: 100px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px;
 }
 
-#user-form {
-    height: 75px;
-    width: 300px;
-}
-
-#city-list ul li {
-    list-style-type: none;
-    text-align: center;
-}
-
-#name-input {
-    height: 40px;
-    width: 270px;
-}
-
-.btn-success {
-    height: 40px;
-    width: 270px;
-}
-
-.container-1 {
-    margin: 10px;
-}
-
-.current-weather-container {
+.weather-container {
     border: 2px solid navy;
-    height: 225px;
     display: block;
-}
-
-.five-day-forecast-container {
-    border: 2px solid black;
-    height: 300px
 }

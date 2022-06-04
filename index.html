@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Macondo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css" />
     <title>Weather Dashboard Site</title>
 </head>
@@ -18,33 +20,32 @@
     </header>
 
     <main>
-        <div class="container-1">
+        <div class="container">
             <div class="row">
-                <div class="col-12 col-md-3" id="search-form">
+                <div class="col-12 col-md-3 col-lg-3" id="search-form">
                     <h2>Search for a City:</h2>
                     <form id="search-form">
                         <div class="form-group">
                             <input type="text" class="form-control" id="city-name-input"
                                 placeholder="Enter city name" />
                         </div>
-                        <button class="btn btn-success">Search</button>
+                        <button class="btn search-button">Search</button>
+                        <button class="btn delete-button">Clear</button>
                     </form>
+                    <br><br>
+                    <div id="city-list"></div>
                 </div>
-                <div class="col-12 col-md-9 current-weather-container"></div>
-            </div>
-        </div>
-        <br>
-        <div class="container-2">
-            <div class="row">
-                <div class="col-12 col-lg-3" id="city-list">
-                    <ul id="cities-list"></ul>
-                </div>
-                <div class="col-12 col-lg-9 five-day-forecast-container">
+                <div class="col-12 col-md-9 col-lg-9 weather-container">
+                    <section id="current-weather-container"></section>
+                    <br>
+                    <section id="five-day-forecast-container"></section>
                 </div>
             </div>
         </div>
     </main>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
 
 </body>
