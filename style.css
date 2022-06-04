@@ -25,7 +25,13 @@ h1 {
     margin: 5px;
 }
 
-.weather-container {
-    border: 2px solid navy;
-    display: block;
+#five-day-forecast-container {
+    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    background-color: transparent;
+    justify-content: center;
+    width: 100%;
 }
+
