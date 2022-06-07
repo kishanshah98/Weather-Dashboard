@@ -24,20 +24,24 @@
             <div class="row">
                 <div class="col-12 col-md-3 col-lg-3" id="search-form">
                     <h2>Search for a City:</h2>
-                    <form id="search-form">
+                    <div id="search-form">
                         <div class="form-group">
                             <input type="text" class="form-control" id="city-name-input" placeholder="Enter city name" />
                         </div>
                         <button class="btn search-button">Search</button>
                         <button class="btn delete-button">Clear</button>
-                    </form>
+                    </div>
                     <br><br>
                     <div id="city-list"></div>
                 </div>
                 <div class="col-12 col-md-9 col-lg-9 weather-container">
-                    <section id="current-weather-container"></section>
+                    <section class="col-12 col-md-4 col-lg-4" id="current-weather-container"></section>
                     <br>
-                    <section id="five-day-forecast-container"></section>
+                    <div>
+                        <h4 class="header-hidden" id="hide">5-day Forecast</h4>
+                        <section id="five-day-forecast-container" class="row"></section>
+                    </div>
+                    
                 </div>
             </div>
         </div>

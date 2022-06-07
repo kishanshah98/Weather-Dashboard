@@ -5,6 +5,7 @@ header {
 
 main {
     width: 100%;
+    padding-top: 15px;
 }
 
 h1 {
@@ -17,7 +18,7 @@ h1 {
 
 .btn {
     display: inline-block;
-    background-color: #349beb;
+    background-color: #2697d4;
     height: 50px;
     width: 100px;
     color: white;
@@ -35,3 +36,23 @@ h1 {
     width: 100%;
 }
 
+.card-content {
+    background-color: #2cb5d4;
+    margin: 5px;
+    padding: 7px;
+    border-radius: 20px;
+    box-shadow: 5px 10px 4px rgba(73, 72, 72, 0.539);
+}
+
+.col {
+    padding: 0 5px;
+}
+
+.container {
+    max-width: 100% !important;
+    min-width: 100%;
+}
+
+#hide {
+    display: none;
+}

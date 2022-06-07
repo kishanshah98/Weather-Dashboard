@@ -8,15 +8,13 @@ var cityListEl = document.querySelector("#city-list");
 var deleteButton = document.querySelector(".delete-button");
 var searchButton = document.querySelector(".search-button");
 
-searchButton.addEventListener("click", getGeoLocation);
+// searchButton.addEventListener("click", getGeoLocation);
 
 
 // Gets the latitude and longitude based on the city that is searched by the user
-function getGeoLocation(event) {
-    event.preventDefault();
+function getGeoLocation(cityName) {
     var apiKey = '311f49e649708ffa86c102b22a78e596';
-    var cityName = cityNameEl.value.trim();
-    cityNameEl.value = '';
+    // var cityName = cityNameEl.value.trim();
     console.log(cityName);
     var apiUrlGeolocation = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityName + '&limit=1&appid=' + apiKey;
 
@@ -34,13 +32,14 @@ function getGeoLocation(event) {
 
             currentWeatherEl.innerHTML = '';
             fiveDayForecastEl.innerHTML = '';
+            
             var h3El = document.createElement("h3");
             h3El.textContent = data[0].name;
             currentWeatherEl.append(h3El);
 
-            var h4El = document.createElement("h4");
-            h4El.textContent = "5-Day Forecast:";
-            fiveDayForecastEl.append(h4El);
+            // var h4El = document.createElement("h4");
+            // h4El.textContent = "5-Day Forecast:";
+            // fiveDayForecastEl.append(h4El);
         });
 };
 
@@ -68,9 +67,16 @@ function getCityWeather(latitude, longitude) {
             var currenthumidityEl = document.createElement("div");
             currenthumidityEl.textContent = "Humidity: " + data.current.humidity + " %";
 
+            var UVISpan = document.createElement("span")
+            UVISpan.textContent = data.current.uvi
+
+
             var currentuvIndexEl = document.createElement("div");
             currentuvIndexEl.textContent = "UV Index: " + data.current.uvi;
+            // currentuvIndexEl.innerHTML = `UV Index: <span id="colorUVI">${data.current.uvi}</span>`;
+            
 
+            // Changes background color of UV Index based on the severity level
             if (data.current.uvi < 2) {
                 currentuvIndexEl.setAttribute("style", "background-color: #7dd943; color: white");
             } else if (data.current.uvi < 5) {
@@ -88,9 +94,14 @@ function getCityWeather(latitude, longitude) {
 
             currentWeatherEl.append(currentIconEl, currentDateEl, currenttempEl, currentwindEl, currenthumidityEl, currentuvIndexEl);
 
+            var headerHidden = document.querySelector(".header-hidden");
+            headerHidden.removeAttribute("id");
+
+            // For-loop to gather and display the weather for the next 5 days on the browser
             for (var i = 1; i < 6; i++) {
                 var weatherCard = document.createElement("div");
                 weatherCard.classList.add("weather-card");
+                weatherCard.classList.add("col");
                 var weatherContent = document.createElement("div");
                 weatherContent.classList.add("card-content");
 
@@ -118,32 +129,34 @@ function getCityWeather(latitude, longitude) {
 };
 
 
-// function historyList() {
-//     cityListEl.innerHTML = '';
-//     var searchHistory = JSON.parse(window.localStorage.getItem("searchHistory")) || [];
-//     searchHistory.forEach(function (search) {
-//         var button = document.createElement("button");
-//         button.textContent(search);
-//         button.addEventListener("click", function () {
-//             getGeoLocation(search);
-//         })
-//         cityListEl.append(button);
-//     })
-// }
+function historyList() {
+    cityListEl.innerHTML = '';
+    var searchHistory = JSON.parse(window.localStorage.getItem("searchHistory")) || [];
+    searchHistory.forEach(function (search) {
+        var button = document.createElement("button");
+        button.textContent = search;
+        button.addEventListener("click", function () {
+            getGeoLocation(search);
+        })
+        cityListEl.append(button);
+    })
+}
 
-// searchButton.addEventListener('submit', function () {
-//     var citySearch = cityNameEl.val().trim();
-//     getGeoLocation(citySearch);
-//     var searchHistory = JSON.parse(window.localStorage.getItem("searchHistory")) || [];
-//     searchHistory.push(citySearch);
-//     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-//     historyList();    
-// });
 
+searchButton.addEventListener('click', function () {
+    var citySearch = cityNameEl.value.trim();
+    getGeoLocation(citySearch);
+    var searchHistory = JSON.parse(window.localStorage.getItem("searchHistory")) || [];
+    searchHistory.push(citySearch);
+    localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+    historyList();    
+});
+
+// Clears local storage and the list of previously searched cities on the screen
 deleteButton.addEventListener("click", function () {
     localStorage.clear();
     cityListEl.innerHTML = '';
 })
 
-// historyList();
+historyList();
 
