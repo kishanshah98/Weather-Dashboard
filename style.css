@@ -41,7 +41,7 @@ h1 {
     margin: 5px;
     padding: 7px;
     border-radius: 20px;
-    box-shadow: 5px 10px 4px rgba(73, 72, 72, 0.539);
+    box-shadow: 4px 10px 4px rgba(73, 72, 72, 0.539);
 }
 
 .col {
@@ -55,4 +55,12 @@ h1 {
 
 #hide {
     display: none;
+}
+
+#city-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: center;
+    width: 50%;
 }

@@ -8,13 +8,9 @@ var cityListEl = document.querySelector("#city-list");
 var deleteButton = document.querySelector(".delete-button");
 var searchButton = document.querySelector(".search-button");
 
-// searchButton.addEventListener("click", getGeoLocation);
-
-
 // Gets the latitude and longitude based on the city that is searched by the user
 function getGeoLocation(cityName) {
     var apiKey = '311f49e649708ffa86c102b22a78e596';
-    // var cityName = cityNameEl.value.trim();
     console.log(cityName);
     var apiUrlGeolocation = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityName + '&limit=1&appid=' + apiKey;
 
@@ -36,10 +32,6 @@ function getGeoLocation(cityName) {
             var h3El = document.createElement("h3");
             h3El.textContent = data[0].name;
             currentWeatherEl.append(h3El);
-
-            // var h4El = document.createElement("h4");
-            // h4El.textContent = "5-Day Forecast:";
-            // fiveDayForecastEl.append(h4El);
         });
 };
 
@@ -72,9 +64,7 @@ function getCityWeather(latitude, longitude) {
 
 
             var currentuvIndexEl = document.createElement("div");
-            currentuvIndexEl.textContent = "UV Index: " + data.current.uvi;
-            // currentuvIndexEl.innerHTML = `UV Index: <span id="colorUVI">${data.current.uvi}</span>`;
-            
+            currentuvIndexEl.textContent = "UV Index: " + data.current.uvi;            
 
             // Changes background color of UV Index based on the severity level
             if (data.current.uvi < 2) {
@@ -128,21 +118,22 @@ function getCityWeather(latitude, longitude) {
         });
 };
 
-
+// Creating the city list under the search section
 function historyList() {
     cityListEl.innerHTML = '';
     var searchHistory = JSON.parse(window.localStorage.getItem("searchHistory")) || [];
     searchHistory.forEach(function (search) {
-        var button = document.createElement("button");
-        button.textContent = search;
-        button.addEventListener("click", function () {
+        var buttonEl = document.createElement("button");
+        buttonEl.setAttribute('style', 'background-color: #eba834; display: block; margin: 1px');
+        buttonEl.textContent = search;
+        buttonEl.addEventListener("click", function () {
             getGeoLocation(search);
         })
-        cityListEl.append(button);
+        cityListEl.append(buttonEl);
     })
 }
 
-
+// Adding cities to the local storage upon search
 searchButton.addEventListener('click', function () {
     var citySearch = cityNameEl.value.trim();
     getGeoLocation(citySearch);
