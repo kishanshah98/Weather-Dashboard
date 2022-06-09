@@ -13,7 +13,7 @@ function getGeoLocation(cityName) {
     var apiKey = '311f49e649708ffa86c102b22a78e596';
     console.log(cityName);
     var apiUrlGeolocation = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityName + '&limit=1&appid=' + apiKey;
-
+    
     fetch(apiUrlGeolocation)
         .then(function (response) {
             return response.json();
