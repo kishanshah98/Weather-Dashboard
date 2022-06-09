@@ -4,7 +4,7 @@ This application is a weather dashboard which shows the current weather and 5 da
 
 ## Screenshot
 
-![Screenshot]()
+![Screenshot](./assets/images/weather-dashboard-img.png)
 
 ## Deploy Link
 
